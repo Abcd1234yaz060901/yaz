@@ -17,14 +17,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("TecnoYaz", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Constructora Yaz", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
                     <li>@Html.ActionLink("Nosotros", "About", "Home")</li>
                     <li>@Html.ActionLink("Servicios", "Index", "Servicios")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Contacto", "Contacto", "Home")</li>
 
                 </ul>
             </div>
@@ -33,9 +33,20 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
-        </footer>
+        <center>
+            <footer>
+                <!-- Inicio area del boton del footer -->
+                <footer>
+                    
+                    <p>Hola! esta es la seccion de footer!</p>
+                    <br />
+                                <p>
+                                    Doctor Luis j Suares #52, La Romana
+                                    Republica Dominicana
+                                </p>
+                <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET (Belkis Vasquez)</p>
+            </footer>
+        </center>
     </div>
 
     @Scripts.Render("~/bundles/jquery")

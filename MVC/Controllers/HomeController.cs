@@ -20,9 +20,13 @@ namespace MVC.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Contacto()
         {
-            ViewBag.Message = "Your contact page.";
+            string pais = "Republica Dominicana";
+            string Direccion = "Dr. Luis J Suares #52, La Romana.";
+
+            ViewBag.Pais = pais;
+            ViewBag.Direccion = Direccion;
 
             return View();
         }
