@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
 namespace Winform1
 {
     public partial class Form1 : Form
@@ -15,111 +17,69 @@ namespace Winform1
         public Form1()
         {
             InitializeComponent();
-        }
 
-        private void Label1_Click(object sender, EventArgs e)
-        {
 
         }
 
-        private void Label2_Click(object sender, EventArgs e)
+        private void ActualizarTabla()
         {
+
+
+            dataGridView1.Rows.Clear();
+
+
+            foreach (CapNegocios.Productos p in DB.Productos)
+            {
+
+                dataGridView1.Rows.Add(p.Codigo,p.Nombre, p.detalle, p.Costo,p.Precio, p.FechaCreacion,p.FechaCreacion,p.Categoria,p.Estado);
+            }
+        }
+
+        CapNegocios.BaseDatos DB = new CapNegocios.BaseDatos();
+
+
+        private void CrearBoton_Click(object sender, EventArgs e)
+        {
+
+            CapNegocios.Productos x = new CapNegocios.Productos();
+
+            x.Codigo = CodigoBox.Text;
+            x.Nombre = NombreBox.Text;
+            x.detalle = DetalleBox.Text;
+            x.Costo = CostoBox.Text;
+            x.Precio = PrecioBox.Text;
+            x.FechaCreacion = FechaCreacionBox.Value;
+            x.FechaVencimiento = FechaVencimientoBox.Value;
+            x.Categoria = CategoriaBox.Text;
+            x.Estado = EstadoBox.Text;
+
+            DB.Productos.Add(x);
+
+            MessageBox.Show("Producto Creado con Exito");
+            ActualizarTabla();
+        }
+
+        private void EliminarBoton_Click(object sender, EventArgs e)
+        {
+
+            DB.Productos.Remove(DB.Productos[dataGridView1.CurrentRow.Index]);
 
         }
 
-        private void Label4_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
-
+            ActualizarTabla();
         }
 
-        private void Label8_Click(object sender, EventArgs e)
+        private void Button1_Click_1(object sender, EventArgs e)
         {
-
+            ActualizarTabla();
         }
 
-        private void Label10_Click(object sender, EventArgs e)
+        private void EliminarBoton_Click_1(object sender, EventArgs e)
         {
-
-        }
-
-        private void NumericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox7_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ProvinciaBox_TextChanged(object sender, EventArgs e)
-        {
-
+            DB.Productos.Remove(DB.Productos[dataGridView1.CurrentRow.Index]);
         }
     }
 }
+

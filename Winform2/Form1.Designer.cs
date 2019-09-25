@@ -30,7 +30,13 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.EliminarBoton = new System.Windows.Forms.Button();
+            this.FechaVencimientoBox = new System.Windows.Forms.DateTimePicker();
+            this.FechaCreacionBox = new System.Windows.Forms.DateTimePicker();
+            this.PrecioBox = new System.Windows.Forms.TextBox();
+            this.CostoBox = new System.Windows.Forms.TextBox();
+            this.DetalleBox = new System.Windows.Forms.TextBox();
+            this.EstadoBox = new System.Windows.Forms.ComboBox();
+            this.CategoriaBox = new System.Windows.Forms.ComboBox();
             this.CrearBoton = new System.Windows.Forms.Button();
             this.NombreBox = new System.Windows.Forms.TextBox();
             this.CodigoBox = new System.Windows.Forms.TextBox();
@@ -45,15 +51,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.EliminarBoton = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.CategoriaBox = new System.Windows.Forms.ComboBox();
-            this.EstadoBox = new System.Windows.Forms.ComboBox();
-            this.DetalleBox = new System.Windows.Forms.TextBox();
-            this.CostoBox = new System.Windows.Forms.TextBox();
-            this.PrecioBox = new System.Windows.Forms.TextBox();
-            this.FechaCreacionBox = new System.Windows.Forms.DateTimePicker();
-            this.FechaVencimientoBox = new System.Windows.Forms.DateTimePicker();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaVencimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -79,7 +89,6 @@
             this.tabPage1.Controls.Add(this.DetalleBox);
             this.tabPage1.Controls.Add(this.EstadoBox);
             this.tabPage1.Controls.Add(this.CategoriaBox);
-            this.tabPage1.Controls.Add(this.EliminarBoton);
             this.tabPage1.Controls.Add(this.CrearBoton);
             this.tabPage1.Controls.Add(this.NombreBox);
             this.tabPage1.Controls.Add(this.CodigoBox);
@@ -101,23 +110,72 @@
             this.tabPage1.Text = "Contacto";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // EliminarBoton
+            // FechaVencimientoBox
             // 
-            this.EliminarBoton.Location = new System.Drawing.Point(1210, 538);
-            this.EliminarBoton.Name = "EliminarBoton";
-            this.EliminarBoton.Size = new System.Drawing.Size(302, 86);
-            this.EliminarBoton.TabIndex = 31;
-            this.EliminarBoton.Text = "Eliminar";
-            this.EliminarBoton.UseVisualStyleBackColor = true;
+            this.FechaVencimientoBox.Location = new System.Drawing.Point(1189, 204);
+            this.FechaVencimientoBox.Name = "FechaVencimientoBox";
+            this.FechaVencimientoBox.Size = new System.Drawing.Size(323, 38);
+            this.FechaVencimientoBox.TabIndex = 38;
+            // 
+            // FechaCreacionBox
+            // 
+            this.FechaCreacionBox.Location = new System.Drawing.Point(1189, 113);
+            this.FechaCreacionBox.Name = "FechaCreacionBox";
+            this.FechaCreacionBox.Size = new System.Drawing.Size(323, 38);
+            this.FechaCreacionBox.TabIndex = 37;
+            // 
+            // PrecioBox
+            // 
+            this.PrecioBox.Location = new System.Drawing.Point(382, 551);
+            this.PrecioBox.Name = "PrecioBox";
+            this.PrecioBox.Size = new System.Drawing.Size(382, 38);
+            this.PrecioBox.TabIndex = 36;
+            // 
+            // CostoBox
+            // 
+            this.CostoBox.Location = new System.Drawing.Point(382, 440);
+            this.CostoBox.Name = "CostoBox";
+            this.CostoBox.Size = new System.Drawing.Size(382, 38);
+            this.CostoBox.TabIndex = 35;
+            // 
+            // DetalleBox
+            // 
+            this.DetalleBox.Location = new System.Drawing.Point(382, 329);
+            this.DetalleBox.Name = "DetalleBox";
+            this.DetalleBox.Size = new System.Drawing.Size(382, 38);
+            this.DetalleBox.TabIndex = 34;
+            // 
+            // EstadoBox
+            // 
+            this.EstadoBox.FormattingEnabled = true;
+            this.EstadoBox.Items.AddRange(new object[] {
+            "Nuevo",
+            "Usado"});
+            this.EstadoBox.Location = new System.Drawing.Point(1189, 378);
+            this.EstadoBox.Name = "EstadoBox";
+            this.EstadoBox.Size = new System.Drawing.Size(323, 39);
+            this.EstadoBox.TabIndex = 33;
+            // 
+            // CategoriaBox
+            // 
+            this.CategoriaBox.FormattingEnabled = true;
+            this.CategoriaBox.Items.AddRange(new object[] {
+            "Laptops",
+            "Celular"});
+            this.CategoriaBox.Location = new System.Drawing.Point(1189, 286);
+            this.CategoriaBox.Name = "CategoriaBox";
+            this.CategoriaBox.Size = new System.Drawing.Size(323, 39);
+            this.CategoriaBox.TabIndex = 32;
             // 
             // CrearBoton
             // 
-            this.CrearBoton.Location = new System.Drawing.Point(858, 538);
+            this.CrearBoton.Location = new System.Drawing.Point(998, 503);
             this.CrearBoton.Name = "CrearBoton";
             this.CrearBoton.Size = new System.Drawing.Size(302, 86);
             this.CrearBoton.TabIndex = 30;
             this.CrearBoton.Text = "Crear";
             this.CrearBoton.UseVisualStyleBackColor = true;
+            this.CrearBoton.Click += new System.EventHandler(this.CrearBoton_Click);
             // 
             // NombreBox
             // 
@@ -223,10 +281,11 @@
             this.label1.Size = new System.Drawing.Size(380, 46);
             this.label1.TabIndex = 1;
             this.label1.Text = "Datos del Producto";
-            this.label1.Click += new System.EventHandler(this.Label1_Click_1);
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.EliminarBoton);
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Controls.Add(this.dataGridView1);
             this.tabPage2.Location = new System.Drawing.Point(10, 48);
@@ -236,6 +295,26 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Tabla";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(532, 15);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(302, 86);
+            this.button1.TabIndex = 33;
+            this.button1.Text = "Actualizar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click_1);
+            // 
+            // EliminarBoton
+            // 
+            this.EliminarBoton.Location = new System.Drawing.Point(973, 15);
+            this.EliminarBoton.Name = "EliminarBoton";
+            this.EliminarBoton.Size = new System.Drawing.Size(302, 86);
+            this.EliminarBoton.TabIndex = 32;
+            this.EliminarBoton.Text = "Eliminar";
+            this.EliminarBoton.UseVisualStyleBackColor = true;
+            this.EliminarBoton.Click += new System.EventHandler(this.EliminarBoton_Click_1);
             // 
             // label11
             // 
@@ -250,6 +329,16 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Codigo,
+            this.Nombre,
+            this.detalle,
+            this.Costo,
+            this.Precio,
+            this.FechaCreacion,
+            this.FechaVencimiento,
+            this.Categoria,
+            this.Estado});
             this.dataGridView1.Location = new System.Drawing.Point(28, 107);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 102;
@@ -257,62 +346,68 @@
             this.dataGridView1.Size = new System.Drawing.Size(1500, 583);
             this.dataGridView1.TabIndex = 0;
             // 
-            // CategoriaBox
+            // Codigo
             // 
-            this.CategoriaBox.FormattingEnabled = true;
-            this.CategoriaBox.Items.AddRange(new object[] {
-            "Laptops",
-            "Celular"});
-            this.CategoriaBox.Location = new System.Drawing.Point(1189, 286);
-            this.CategoriaBox.Name = "CategoriaBox";
-            this.CategoriaBox.Size = new System.Drawing.Size(323, 39);
-            this.CategoriaBox.TabIndex = 32;
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.MinimumWidth = 12;
+            this.Codigo.Name = "Codigo";
+            this.Codigo.Width = 250;
             // 
-            // EstadoBox
+            // Nombre
             // 
-            this.EstadoBox.FormattingEnabled = true;
-            this.EstadoBox.Items.AddRange(new object[] {
-            "Nuevo",
-            "Usado"});
-            this.EstadoBox.Location = new System.Drawing.Point(1189, 378);
-            this.EstadoBox.Name = "EstadoBox";
-            this.EstadoBox.Size = new System.Drawing.Size(323, 39);
-            this.EstadoBox.TabIndex = 33;
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.MinimumWidth = 12;
+            this.Nombre.Name = "Nombre";
+            this.Nombre.Width = 250;
             // 
-            // DetalleBox
+            // detalle
             // 
-            this.DetalleBox.Location = new System.Drawing.Point(382, 329);
-            this.DetalleBox.Name = "DetalleBox";
-            this.DetalleBox.Size = new System.Drawing.Size(382, 38);
-            this.DetalleBox.TabIndex = 34;
+            this.detalle.HeaderText = "Detalle";
+            this.detalle.MinimumWidth = 12;
+            this.detalle.Name = "detalle";
+            this.detalle.Width = 250;
             // 
-            // CostoBox
+            // Costo
             // 
-            this.CostoBox.Location = new System.Drawing.Point(382, 440);
-            this.CostoBox.Name = "CostoBox";
-            this.CostoBox.Size = new System.Drawing.Size(382, 38);
-            this.CostoBox.TabIndex = 35;
+            this.Costo.HeaderText = "Costo";
+            this.Costo.MinimumWidth = 12;
+            this.Costo.Name = "Costo";
+            this.Costo.Width = 250;
             // 
-            // PrecioBox
+            // Precio
             // 
-            this.PrecioBox.Location = new System.Drawing.Point(382, 551);
-            this.PrecioBox.Name = "PrecioBox";
-            this.PrecioBox.Size = new System.Drawing.Size(382, 38);
-            this.PrecioBox.TabIndex = 36;
+            this.Precio.HeaderText = "Precio";
+            this.Precio.MinimumWidth = 12;
+            this.Precio.Name = "Precio";
+            this.Precio.Width = 250;
             // 
-            // FechaCreacionBox
+            // FechaCreacion
             // 
-            this.FechaCreacionBox.Location = new System.Drawing.Point(1189, 113);
-            this.FechaCreacionBox.Name = "FechaCreacionBox";
-            this.FechaCreacionBox.Size = new System.Drawing.Size(323, 38);
-            this.FechaCreacionBox.TabIndex = 37;
+            this.FechaCreacion.HeaderText = "FechaCreacion";
+            this.FechaCreacion.MinimumWidth = 12;
+            this.FechaCreacion.Name = "FechaCreacion";
+            this.FechaCreacion.Width = 250;
             // 
-            // FechaVencimientoBox
+            // FechaVencimiento
             // 
-            this.FechaVencimientoBox.Location = new System.Drawing.Point(1189, 204);
-            this.FechaVencimientoBox.Name = "FechaVencimientoBox";
-            this.FechaVencimientoBox.Size = new System.Drawing.Size(323, 38);
-            this.FechaVencimientoBox.TabIndex = 38;
+            this.FechaVencimiento.HeaderText = "FechaVencimiento";
+            this.FechaVencimiento.MinimumWidth = 12;
+            this.FechaVencimiento.Name = "FechaVencimiento";
+            this.FechaVencimiento.Width = 250;
+            // 
+            // Categoria
+            // 
+            this.Categoria.HeaderText = "Categoria";
+            this.Categoria.MinimumWidth = 12;
+            this.Categoria.Name = "Categoria";
+            this.Categoria.Width = 250;
+            // 
+            // Estado
+            // 
+            this.Estado.HeaderText = "Estado";
+            this.Estado.MinimumWidth = 12;
+            this.Estado.Name = "Estado";
+            this.Estado.Width = 250;
             // 
             // Form1
             // 
@@ -322,7 +417,6 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -348,7 +442,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button EliminarBoton;
         private System.Windows.Forms.Button CrearBoton;
         private System.Windows.Forms.TextBox NombreBox;
         private System.Windows.Forms.TextBox CodigoBox;
@@ -361,6 +454,17 @@
         private System.Windows.Forms.TextBox DetalleBox;
         private System.Windows.Forms.ComboBox EstadoBox;
         private System.Windows.Forms.ComboBox CategoriaBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn detalle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Costo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaCreacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaVencimiento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.Button EliminarBoton;
+        private System.Windows.Forms.Button button1;
     }
 }
 

@@ -15,101 +15,59 @@ namespace Winform1
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void Label1_Click(object sender, EventArgs e)
-        {
+         
 
         }
 
-        private void Label2_Click(object sender, EventArgs e)
+        private void ActualizarTabla()
         {
+
+           
+                dataGridView1.Rows.Clear();
+            
+           
+            foreach (CapNegocios.Persona p in DB.personas)
+            {
+              
+                dataGridView1.Rows.Add(p.Nombre, p.Apellido,p.FechaNacimiento, p.edad, p.Telefono, p.Celular, p.Direccion, p.Provincia, p.Pais);
+            }
+        }
+
+        CapNegocios.BaseDatos DB = new CapNegocios.BaseDatos();       
+
+
+        private void CrearBoton_Click(object sender, EventArgs e)
+        {
+
+            CapNegocios.Persona x = new CapNegocios.Persona();
+
+            x.Nombre = NombreBox.Text;
+            x.Apellido = ApellidoBox.Text;
+            x.Celular = CelularBox.Text;
+            x.Direccion = DireccionBox.Text;
+            x.edad = Convert.ToInt32(EdadBox.Value);
+            x.FechaNacimiento = FechaNacimientoBox.Value;
+            x.Pais = PaisBox.Text;
+            x.Telefono = TelefonoBox.Text ;
+            x.Provincia = ProvinciaBox.Text;
+            
+
+            DB.personas.Add(x);
+
+            MessageBox.Show("Persona Creada con Exito");
+            ActualizarTabla();
+        }
+
+        private void EliminarBoton_Click(object sender, EventArgs e)
+        {
+
+            DB.personas.Remove(DB.personas[dataGridView1.CurrentRow.Index]);
 
         }
 
-        private void Label4_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void Label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void NumericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox7_TextChanged(object sender, EventArgs e)
-        {
-
+            ActualizarTabla();
         }
     }
 }

@@ -30,7 +30,6 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.EliminarBoton = new System.Windows.Forms.Button();
             this.CrearBoton = new System.Windows.Forms.Button();
             this.PaisBox = new System.Windows.Forms.TextBox();
             this.ProvinciaBox = new System.Windows.Forms.TextBox();
@@ -52,8 +51,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.EliminarBoton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.edad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Celular = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Provincia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pais = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EdadBox)).BeginInit();
@@ -73,7 +83,6 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.EliminarBoton);
             this.tabPage1.Controls.Add(this.CrearBoton);
             this.tabPage1.Controls.Add(this.PaisBox);
             this.tabPage1.Controls.Add(this.ProvinciaBox);
@@ -102,15 +111,6 @@
             this.tabPage1.Text = "Contacto";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // EliminarBoton
-            // 
-            this.EliminarBoton.Location = new System.Drawing.Point(1206, 466);
-            this.EliminarBoton.Name = "EliminarBoton";
-            this.EliminarBoton.Size = new System.Drawing.Size(302, 86);
-            this.EliminarBoton.TabIndex = 31;
-            this.EliminarBoton.Text = "Eliminar";
-            this.EliminarBoton.UseVisualStyleBackColor = true;
-            // 
             // CrearBoton
             // 
             this.CrearBoton.Location = new System.Drawing.Point(855, 466);
@@ -119,6 +119,7 @@
             this.CrearBoton.TabIndex = 30;
             this.CrearBoton.Text = "Crear";
             this.CrearBoton.UseVisualStyleBackColor = true;
+            this.CrearBoton.Click += new System.EventHandler(this.CrearBoton_Click);
             // 
             // PaisBox
             // 
@@ -276,6 +277,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.EliminarBoton);
+            this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Controls.Add(this.dataGridView1);
             this.tabPage2.Location = new System.Drawing.Point(10, 48);
@@ -286,15 +289,25 @@
             this.tabPage2.Text = "Tabla";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // EliminarBoton
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(28, 107);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 102;
-            this.dataGridView1.RowTemplate.Height = 40;
-            this.dataGridView1.Size = new System.Drawing.Size(1500, 583);
-            this.dataGridView1.TabIndex = 0;
+            this.EliminarBoton.Location = new System.Drawing.Point(1003, 6);
+            this.EliminarBoton.Name = "EliminarBoton";
+            this.EliminarBoton.Size = new System.Drawing.Size(302, 86);
+            this.EliminarBoton.TabIndex = 32;
+            this.EliminarBoton.Text = "Eliminar";
+            this.EliminarBoton.UseVisualStyleBackColor = true;
+            this.EliminarBoton.Click += new System.EventHandler(this.EliminarBoton_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(617, 6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(302, 86);
+            this.button1.TabIndex = 31;
+            this.button1.Text = "Actualizar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // label11
             // 
@@ -306,6 +319,89 @@
             this.label11.TabIndex = 2;
             this.label11.Text = "Informacion del Contacto";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Nombre,
+            this.Apellido,
+            this.FechaNacimiento,
+            this.edad,
+            this.Telefono,
+            this.Celular,
+            this.Direccion,
+            this.Provincia,
+            this.Pais});
+            this.dataGridView1.Location = new System.Drawing.Point(28, 107);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 102;
+            this.dataGridView1.RowTemplate.Height = 40;
+            this.dataGridView1.Size = new System.Drawing.Size(1500, 583);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.MinimumWidth = 12;
+            this.Nombre.Name = "Nombre";
+            this.Nombre.Width = 250;
+            // 
+            // Apellido
+            // 
+            this.Apellido.HeaderText = "Apellido";
+            this.Apellido.MinimumWidth = 12;
+            this.Apellido.Name = "Apellido";
+            this.Apellido.Width = 250;
+            // 
+            // FechaNacimiento
+            // 
+            this.FechaNacimiento.HeaderText = "FechaNacimiento";
+            this.FechaNacimiento.MinimumWidth = 12;
+            this.FechaNacimiento.Name = "FechaNacimiento";
+            this.FechaNacimiento.Width = 250;
+            // 
+            // edad
+            // 
+            this.edad.HeaderText = "Edad";
+            this.edad.MinimumWidth = 12;
+            this.edad.Name = "edad";
+            this.edad.Width = 250;
+            // 
+            // Telefono
+            // 
+            this.Telefono.HeaderText = "Telefono";
+            this.Telefono.MinimumWidth = 12;
+            this.Telefono.Name = "Telefono";
+            this.Telefono.Width = 250;
+            // 
+            // Celular
+            // 
+            this.Celular.HeaderText = "Celular";
+            this.Celular.MinimumWidth = 12;
+            this.Celular.Name = "Celular";
+            this.Celular.Width = 250;
+            // 
+            // Direccion
+            // 
+            this.Direccion.HeaderText = "Direccion";
+            this.Direccion.MinimumWidth = 12;
+            this.Direccion.Name = "Direccion";
+            this.Direccion.Width = 250;
+            // 
+            // Provincia
+            // 
+            this.Provincia.HeaderText = "Provincia";
+            this.Provincia.MinimumWidth = 12;
+            this.Provincia.Name = "Provincia";
+            this.Provincia.Width = 250;
+            // 
+            // Pais
+            // 
+            this.Pais.HeaderText = "Pais";
+            this.Pais.MinimumWidth = 12;
+            this.Pais.Name = "Pais";
+            this.Pais.Width = 250;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -313,8 +409,10 @@
             this.ClientSize = new System.Drawing.Size(1577, 777);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -341,7 +439,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button EliminarBoton;
         private System.Windows.Forms.Button CrearBoton;
         private System.Windows.Forms.TextBox PaisBox;
         private System.Windows.Forms.TextBox ProvinciaBox;
@@ -354,6 +451,17 @@
         private System.Windows.Forms.TextBox NombreBox;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button EliminarBoton;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaNacimiento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn edad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Celular;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Provincia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pais;
     }
 }
 

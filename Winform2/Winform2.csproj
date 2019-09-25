@@ -80,9 +80,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Winform1\Winform1.csproj">
-      <Project>{4258C894-8768-4FAD-AFFE-9B45A6776999}</Project>
-      <Name>Winform1</Name>
+    <ProjectReference Include="..\CapNegocios\CapNegocios.csproj">
+      <Project>{7a241400-1010-440a-91cc-8b8d0a047411}</Project>
+      <Name>CapNegocios</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
